@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/w3.css' rel="stylesheet" type="text/css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+    .container-fluid { padding: 0px; }
+  </style>
+</head>
+
+<body class="body1" id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="navbar1">
+    <center>
+      <div style="max-width:400px;">
+        <div class="iconlink" onClick="window.location='home.html';">
+          <div style="width:28px;"><img src="./img/menu-01.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ผู้ร่วมงาน</div>
+        </div>
+        <div class="iconlink" onClick="window.location='register.html';">
+          <div style="width:28px;"><img src="./img/menu-02.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ลงทะเบียน</div>
+        </div>
+        <div class="iconlink" onClick="window.location='map.html';">
+          <div style="width:28px;"><img src="./img/menu-03.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ผังที่นั่ง</div>
+        </div>
+        <div class="iconlink" onClick="window.location='about.html';" style="background-color: #002d63;">
+          <div style="width:28px;"><img src="./img/menu-04.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ttb reserve</div>
+        </div>
+     </div>
+    </center>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <center>
+      <!--<div class="btn-t33" style="margin-top:80px;">ข้อมูลผู้เข้าร่วมงาน</div>-->
+      <div style="margin-top:80px; margin-bottom: 30px;"><img src="./img/logo-ttbreserve.png" style="width:100%; max-width: 170px;">
+        <br><img src="./img/ttb-WBEvent.png" style="height: 10px;margin-top:10px;">
+      </div>
+    </center>
+    <div style="margin:10px auto; width:100%; max-width: 400px;">
+      <div style="margin:auto;max-width:84%;width:100%;">
+        <center>
+          <div style="margin-top:20px;">
+            <div style="width:32%;float: left;border-right: dashed #2a2727 2px;">
+              <div class="customer-img"><img src="./img/family.png" style="width:50%;"></div>
+              <div class="btn-t1">ลูกค้า</div>
+              <div class="text-2" id="RegCustomer"></div>
+            </div>
+            <div style="width:32%;float: left;border-right: dashed #2a2727 2px;">
+              <!--<div style="height: 110px;"><img src="./img/executive.png" style="width:50%;"></div>-->
+              <div style="height: 55px;"><img src="./img/staff.png" style="width:50%;"></div>
+              <div class="btn-t2">ผู้บริหาร</div>
+              <div class="text-2" id="RegExecutive"></div>
+            </div>
+            <div style="width:32%;float: left;">
+              <!--<div style="height: 110px;"><img src="./img/executive.png" style="width:50%;"></div>-->
+              <div style="height: 55px;"><img src="./img/executive.png" style="width:50%;"></div>
+              <div class="btn-t3">พนักงาน</div>
+              <div class="text-2" id="RegStaff"></div>
+            </div>
+          </div>
+        </center>
+      </div><div class="clr"></div>
+    </div>
+  </div>
+
+
+  <main id="main">
+    <div class="container" style="text-align: center;margin:10px auto;width:100%; max-width: 400px;">
+      <div class="btn-t1">เกี่ยวกับกิจกรรม</div>
+      <div style="text-align: left; color:#fff;margin:15px 20px;">
+        <div class="txt-header">ชื่อกิจกรรม</div>
+        <div class="txt-detail">ttb Wealth The Infinite Success Forum</div>
+        <div class="txt-header">วันที่ และเวลา</div>
+        <div class="txt-detail">วันที่ 5 พฤศจิกายน 2565 เวลา 17:00 - 21:00 น.</div>
+        <div class="txt-header">สถานที่จัดงาน</div>
+        <div class="txt-detail">โรงแรมสุนีย์แกรนด์ จังหวัดอุบลราชธานี</div>
+
+
+      </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3849.210187641738!2d104.84659634962634!3d15.256329264710129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311687dfcc5e2425%3A0x198ff27d1b2cf9ba!2z4LmC4Lij4LiH4LmB4Lij4Lih4Liq4Li44LiZ4Li14Lii4LmM4LmB4LiB4Lij4LiZ4LiU4LmM!5e0!3m2!1sth!2sth!4v1664286373360!5m2!1sth!2sth" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </main>
+
+
+
+  <footer class="container-fluid text-center" style="margin-top:50px;">
+    <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="footer-main" style="color:#fff;">
+      @<span class="footer-font-greenn" style="color:#fff;">LINE</span> 
+      <span class="footer-font-navi" style="color:#fff;">Retail</span> 
+      <span class="footer-font-blue" style="color:#fff;">So</span><span class="footer-font-org" style="color:#fff;">ciety</span>
+    </div>
+ </footer>
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #002d63;">
+      <div class="w3-container" style="width:100%;margin:auto;min-height: 350px;">
+        <center>
+          <div style="margin-top:20px; margin-bottom: 0px;"><img src="./img/logo-ttbreserve.png" style="width:100%; max-width: 170px;">
+            <br><img src="./img/ttb-WBEvent.png" style="height: 10px;margin-top:10px;">
+          </div>
+          <div id="DisplayProfile"></div>
+        </center>
+      </div>
+    </div>
+    <div class="clr" style="height:70px;"></div>
+  </div>
+
+
+
+
+<script src="./js/register.js"></script>
+</body>
+</html>

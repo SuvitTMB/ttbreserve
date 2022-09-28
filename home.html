@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/w3.css' rel="stylesheet" type="text/css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+    .container-fluid { padding: 0px; }
+  </style>
+</head>
+
+<body class="body1" id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="navbar1">
+    <center>
+      <div style="max-width:400px;">
+        <div class="iconlink" onClick="window.location='home.html';" style="background-color: #002d63;">
+          <div style="width:28px;"><img src="./img/menu-01.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ผู้ร่วมงาน</div>
+        </div>
+        <div class="iconlink" onClick="window.location='register.html';">
+          <div style="width:28px;"><img src="./img/menu-02.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ลงทะเบียน</div>
+        </div>
+        <div class="iconlink" onClick="window.location='map.html';">
+          <div style="width:28px;"><img src="./img/menu-03.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ผังที่นั่ง</div>
+        </div>
+        <div class="iconlink" onClick="window.location='about.html';">
+          <div style="width:28px;"><img src="./img/menu-04.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">กิจกรรม</div>
+        </div>
+     </div>
+    </center>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <center>
+      <!--<div class="btn-t33" style="margin-top:80px;">ข้อมูลผู้เข้าร่วมงาน</div>-->
+      <div style="margin-top:80px; margin-bottom: 30px;"><img src="./img/logo-ttbreserve.png" style="width:100%; max-width: 170px;">
+        <br><img src="./img/ttb-WBEvent.png" style="height: 10px;margin-top:10px;">
+      </div>
+    </center>
+    <div style="margin:10px auto; width:100%; max-width: 400px;">
+      <div style="margin:auto;max-width:84%;width:100%;">
+        <center>
+          <div style="margin-top:20px;">
+            <div style="width:32%;float: left;border-right: dashed #2a2727 2px;">
+              <div class="customer-img"><img src="./img/family.png" style="width:50%;"></div>
+              <div class="btn-t1" onclick="LinkGroup('A')">ลูกค้า</div>
+              <div class="text-2" id="RegCustomer"></div>
+            </div>
+            <div style="width:32%;float: left;border-right: dashed #2a2727 2px;">
+              <!--<div style="height: 110px;"><img src="./img/executive.png" style="width:50%;"></div>-->
+              <div style="height: 55px;"><img src="./img/staff.png" style="width:50%;"></div>
+              <div class="btn-t2" onclick="LinkGroup('B')">ผู้บริหาร</div>
+              <div class="text-2" id="RegExecutive"></div>
+            </div>
+            <div style="width:32%;float: left;">
+              <!--<div style="height: 110px;"><img src="./img/executive.png" style="width:50%;"></div>-->
+              <div style="height: 55px;"><img src="./img/executive.png" style="width:50%;"></div>
+              <div class="btn-t3" onclick="LinkGroup('C')">พนักงาน</div>
+              <div class="text-2" id="RegStaff"></div>
+            </div>
+          </div>
+        </center>
+      </div>
+    </div>
+  </div>
+
+
+  <main id="main">
+    <div class="container" style="text-align: center;margin:30px auto 30px auto;">
+      <div id="DisplayHeader"></div>
+      <!--<div class="btn-t1">ลูกค้าที่ได้รับเชิญร่วมงาน</div>-->
+      <div class="clr"></div>
+      <div style="margin:20px auto;max-width: 450px; width:100%;">
+        <div id="DisplayMember"></div>
+<!--
+        <div class="display-customer" onclick="ClickMember(1)"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน | A1, A2</div>
+          <div class="check-customer"><img src="./img/true.png"></div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน | B5, B6</div>
+          <div class="check-customer"><img src="./img/false.png"></div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+          <div class="check-customer"><img src="./img/true.png"></div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+          <div class="check-customer"><img src="./img/true.png"></div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+          <div class="check-customer"><img src="./img/true.png"></div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+          <div class="check-customer"><img src="./img/true.png"></div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+          <div class="check-customer"><img src="./img/true.png"></div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+          <div class="check-customer"><img src="./img/false.png"></div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+          <div class="check-customer"><img src="./img/false.png"></div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+          <div class="check-customer"><img src="./img/false.png"></div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+          <div class="check-customer"><img src="./img/false.png"></div>
+        </div>
+        <div class="display-customer"><img src="./img/customer.png" style="width:70%;">
+          <div class="text-customer">สมชาย กล้าหาญ<br>2 ท่าน</div>
+        </div>
+-->
+      </div>
+      <!--
+      <div style="margin-top:0px; margin-bottom: 30px;"><img src="./img/logo-ttbreserve.png" style="width:100%; max-width: 170px;"><br>
+        <img src="./img/ttb-WBEvent.png" style="height: 10px;margin-top:10px;"><br>
+        <div style="max-width: 400px; width:100%;margin:30px auto 20px auto;">
+          <img src="./img/ttb-WBagenda.png" style="width:70%">
+        </div>
+      </div>
+    -->
+    </div>
+  </main>
+
+  <footer class="container-fluid text-center">
+    <div id="isLoggedIn" style="color:#fff;"></div>
+    <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="footer-main" style="color:#fff;">
+      @<span class="footer-font-greenn" style="color:#fff;">LINE</span> 
+      <span class="footer-font-navi" style="color:#fff;">Retail</span> 
+      <span class="footer-font-blue" style="color:#fff;">So</span><span class="footer-font-org" style="color:#fff;">ciety</span>
+    </div>
+ </footer>
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #002d63;">
+      <div class="w3-container" style="width:100%;margin:auto;min-height: 350px;">
+        <center>
+          <div style="margin-top:20px; margin-bottom: 0px;"><img src="./img/logo-ttbreserve.png" style="width:100%; max-width: 170px;">
+            <br><img src="./img/ttb-WBEvent.png" style="height: 10px;margin-top:10px;">
+          </div>
+          <div id="DisplayProfile"></div>
+          <!--<div class="btn-t33" style="margin-top:20px;">Welcome to</div>-->
+<!--
+          <div><img src="./customer/A0001.jpg" style="width: 120px;margin:15px auto;border-radius: 50%;"></div>
+          <div style="color:#f68b1f;font-size: 12px;font-weight: 600;">ศุภชัย จิระอนันต์ (52 ปี)<br>สมรส (คุณวิกานดา จิระอนันต์)</div>
+          <div style="color:#fff;font-size: 11px;">กรรมการบริหาร<br>บริษัท รุ่งเรืองตระกูล จำกัด<br>ธุรกิจเกี่ยวกับผลิตและจำหน่ายเคมีเกษตร</div>
+          <div style="color:#fff;font-size: 11px;margin-top:15px;"><font color="#888">พอร์ตการลงทุนกับ ttb</font><br>เงินฝาก 50  ล้านบาท<br>กองทุน 7 ล้านบาท<br>ประกันชีวิต 8 ล้านบาท (ทั้งในชื่อตนเองและครอบครัว)</div>
+          <div style="color:#fff;font-size: 11px;margin-top:15px;"><font color="#888">พอร์ตการลงทุนกับที่อื่น</font><br>KBANK เงินฝาก 150 ล้านบาท <br>กองทุน -<br>ประกันชีวิต -</div>
+          <div style="color:#fff;font-size: 11px;margin-top:15px;"><font color="#888">สถานะบัตร ttb reserve</font><br>มีบัตร<br>Infinite</div>
+          <div style="color:#fff;font-size: 11px;margin-top:15px;"><font color="#888">พนักงานที่ดูแล</font><br>BM ศศิมา จุนเจิม<br>สาขาอุบลราชธานี</div>
+          <div class="clr" style="height: 15px;"></div>
+          <div class="btn-t4" onclick="ChcekRegister(1)">Register</div>
+          <div class="btn-t4" onclick="ChcekRegister(2)">Cancel</div>
+          <div class="btn-t4" onclick="ChcekRegister(3)">Clear</div>
+          <div class="btn-t22" onclick="CloseAll()">Close</div>
+          <div class="clr" style="height:30px;"></div>
+-->
+        </center>
+      </div>
+    </div>
+    <div class="clr" style="height:70px;"></div>
+  </div>
+
+
+
+
+<script src="./js/home.js"></script>
+</body>
+</html>
