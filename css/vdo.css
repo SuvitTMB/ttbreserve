@@ -1002,21 +1002,39 @@ hr {
 .TableGroup_b {
   width:18%; height: 90px; border-radius: 1px solid #ccc; margin:2px; float: left;
   border-radius: 5px; color:#777; cursor: pointer; position: relative;
-  -webkit-filter: grayscale(100%);
-filter: grayscale(100%);
+  filter: brightness(40%);
 }
 
+.TableGroup_c {
+  filter: brightness(40%);
+}
+
+.TableGroup_d {
+  width:22%; height: 90px; border-radius: 1px solid #ccc; margin:2px; float: left;
+  border-radius: 5px; color:#ffff00; cursor: pointer; position: relative;
+}
+.TableGroup_e {
+  width:22%; height: 90px; border-radius: 1px solid #ccc; margin:2px; float: left;
+  border-radius: 5px; color:#777; cursor: pointer; position: relative;
+  filter: brightness(40%);
+}
+.TableGroup_f {
+  filter: brightness(40%);
+}
+.check-customermap1 {
+  position: absolute; bottom: 15px; right: 2px; 
+}
 
 
 .imgTable {
-  width: 100%;border-radius: 5%; border:4px solid #0056ff;padding:1px; background-color: #fff;
-  /*width: 100%;border-radius: 5%; padding:1px; background-color: #fff;*/
+  /*width: 100%;border-radius: 5%; border:4px solid #0056ff;padding:1px; background-color: #fff;*/
+  width: 100%;border-radius: 50%; border:4px solid #0056ff;padding:1px; background-color: #fff;
 }
 .imgTable_1 {
-  width: 100%;border-radius: 5%; border:4px solid #f68b1f;padding:1px; background-color: #fff;
+  width: 100%;border-radius: 50%; border:4px solid #f68b1f;padding:1px; background-color: #fff;
 }
 .imgTable_2 {
-  width: 100%;border-radius: 5%; border:4px solid #64c916;padding:1px; background-color: #fff;
+  width: 100%;border-radius: 50%; border:4px solid #64c916;padding:1px; background-color: #fff;
 }
 .txt-header {
   font-size: 11px; color: #777; padding: 5px 0px;

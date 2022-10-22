@@ -1,4 +1,3 @@
-
 @font-face {
    font-family: ekachon-regular;
    src: url('../fonts/ekachon-regular.woff2') format('woff2'),
@@ -18,3 +17,26 @@ div {
   font-family: ekachon-regular;
   font-size: 12px;
 }
+/*
+
+@font-face {
+   font-family: ttb-regular;
+   src: url('../fonts/ttb-regular.woff2') format('woff2'),
+   url('../fonts/ttb-regular.woff') format('woff');
+}
+@font-face {
+ font-family: ttb-bold;
+ src: url('../fonts/ttb-bold.woff2') format('woff2'),
+ url('../fonts/ttb-bold.woff') format('woff');
+}
+@font-face {
+   font-family: ttb-extrabold;
+   src: url('../fonts/ttb-extrabold.woff2') format('woff2'),
+   url('../fonts/ttb-extrabold.woff') format('woff');
+}
+div {
+  font-family: ttb-regular;
+  font-size: 13px;
+}
+
+*/
