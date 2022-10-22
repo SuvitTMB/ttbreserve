@@ -38,34 +38,10 @@
 <body class="body1" id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-  <div class="navbar1">
-    <center>
-      <div style="max-width:400px;">
-        <div class="iconlink" onClick="window.location='home.html';" style="background-color: #002d63;">
-          <div style="width:28px;"><img src="./img/menu-01.png" style="width:22px;"></div>
-          <div style="font-size: 11px;">ผู้ร่วมงาน</div>
-        </div>
-        <div class="iconlink" onClick="window.location='register.html';">
-          <div style="width:28px;"><img src="./img/menu-02.png" style="width:22px;"></div>
-          <div style="font-size: 11px;">ลงทะเบียน</div>
-        </div>
-        <div class="iconlink" onClick="window.location='map.html';">
-          <div style="width:28px;"><img src="./img/menu-03.png" style="width:22px;"></div>
-          <div style="font-size: 11px;">ผังที่นั่ง</div>
-        </div>
-        <div class="iconlink" onClick="window.location='about.html';">
-          <div style="width:28px;"><img src="./img/menu-04.png" style="width:22px;"></div>
-          <div style="font-size: 11px;">ttb reserve</div>
-        </div>
-     </div>
-    </center>
-  </div>
-
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+        <a class="navbar-brand" href="#myPage" style="font-size: 12px;">LINE Retail Society</a>
       </div>
     </div>
   </nav>
@@ -108,14 +84,11 @@
 
   <main id="main">
     <div class="container" style="text-align: center;margin:30px auto 30px auto;">
-      <div id="DisplayHeader"></div>
-      <div class="clr"></div>
-      <div style="margin:20px auto;max-width: 450px; width:100%;">
-        <div id="DisplayMember"></div>
-      </div>
+      <div class="btn-t1">ผังโต๊ะนั่ง</div>
+      <div id="DisplayMap"></div>
     </div>
+    <center><div class="btn-t2" onClick="window.location='display-map.html';"  style="margin-top:0px;">Update Data</div></center>
   </main>
-
 
 
   <div id="id01" class="w3-modal w3-animate-opacity">
@@ -133,18 +106,16 @@
   </div>
 
 
-  <footer class="container-fluid text-center">
-    <div id="isLoggedIn" style="color:#fff;"></div>
+  <footer class="container-fluid text-center" style="margin-top:20px;">
     <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
     <div class="footer-main" style="color:#fff;">
       @<span class="footer-font-greenn" style="color:#fff;">LINE</span> 
       <span class="footer-font-navi" style="color:#fff;">Retail</span> 
       <span class="footer-font-blue" style="color:#fff;">So</span><span class="footer-font-org" style="color:#fff;">ciety</span>
     </div>
-    <div class="clr" style="height: 70px;"></div>
+    <div class="clr" style="height: 20px;"></div>
  </footer>
 
-
-<script src="./js/home.js"></script>
+<script src="./js/display-map.js"></script>
 </body>
 </html>
