@@ -1,1 +1,208 @@
-var _0x54a089=_0x5237;(function(_0x8eaede,_0x52a0ec){var _0x1b2c40=_0x5237,_0x11da5c=_0x8eaede();while(!![]){try{var _0x48b79e=parseInt(_0x1b2c40(0x178))/0x1+parseInt(_0x1b2c40(0x15f))/0x2*(parseInt(_0x1b2c40(0x18d))/0x3)+-parseInt(_0x1b2c40(0x140))/0x4+-parseInt(_0x1b2c40(0x19f))/0x5*(-parseInt(_0x1b2c40(0x14c))/0x6)+-parseInt(_0x1b2c40(0x176))/0x7*(-parseInt(_0x1b2c40(0x14b))/0x8)+parseInt(_0x1b2c40(0x138))/0x9+-parseInt(_0x1b2c40(0x13a))/0xa;if(_0x48b79e===_0x52a0ec)break;else _0x11da5c['push'](_0x11da5c['shift']());}catch(_0xa9db33){_0x11da5c['push'](_0x11da5c['shift']());}}}(_0x22d4,0x90c70));function _0x5237(_0x51f8f9,_0x4a3131){var _0x22d4c1=_0x22d4();return _0x5237=function(_0x523738,_0x5d37a3){_0x523738=_0x523738-0x135;var _0xcb6b3=_0x22d4c1[_0x523738];return _0xcb6b3;},_0x5237(_0x51f8f9,_0x4a3131);}var xMemo='',SelectGroup='',GotoGroup=0x0,CountPeople='',dateString='';$(document)[_0x54a089(0x16c)](function(){var _0x4638fb=_0x54a089;Connect_DB(),CheckPeople(),LoadRegister(),setInterval(_0x4638fb(0x188),0x1f40);});function Connect_DB(){var _0x4a3048=_0x54a089,_0x33e25c={'apiKey':_0x4a3048(0x173),'authDomain':_0x4a3048(0x18e),'projectId':_0x4a3048(0x17e),'storageBucket':_0x4a3048(0x163),'messagingSenderId':_0x4a3048(0x17c),'appId':_0x4a3048(0x13f),'measurementId':_0x4a3048(0x165)};firebase[_0x4a3048(0x18c)](_0x33e25c),dbttbreserve=firebase[_0x4a3048(0x15e)]()[_0x4a3048(0x192)]('ttbreserve'),dbttbreservemap=firebase[_0x4a3048(0x15e)]()[_0x4a3048(0x192)](_0x4a3048(0x17d));}function CheckPeople(){var _0x1f434d=_0x54a089,_0x2d611e=0x0,_0x116541=0x0,_0x26aa0d=0x0,_0x5e5e46=0x0;dbttbreserve[_0x1f434d(0x152)]('RegisterType','==','Registered')[_0x1f434d(0x16d)](_0x1f434d(0x161),_0x1f434d(0x148))['get']()[_0x1f434d(0x186)](_0x1d12dc=>{var _0x1d83d4=_0x1f434d;_0x1d12dc[_0x1d83d4(0x191)](_0x1cf83f=>{var _0x1ed1ed=_0x1d83d4;if(_0x1cf83f[_0x1ed1ed(0x194)]()['TableGroup']=='A')_0x2d611e=_0x2d611e+_0x1cf83f['data']()[_0x1ed1ed(0x144)],_0x5e5e46=_0x5e5e46+_0x1cf83f[_0x1ed1ed(0x194)]()[_0x1ed1ed(0x144)];else{if(_0x1cf83f[_0x1ed1ed(0x194)]()[_0x1ed1ed(0x161)]=='B')_0x116541=_0x116541+_0x1cf83f[_0x1ed1ed(0x194)]()['People'],_0x5e5e46=_0x5e5e46+_0x1cf83f[_0x1ed1ed(0x194)]()[_0x1ed1ed(0x144)];else _0x1cf83f[_0x1ed1ed(0x194)]()[_0x1ed1ed(0x161)]=='C'&&(_0x26aa0d=_0x26aa0d+_0x1cf83f[_0x1ed1ed(0x194)]()[_0x1ed1ed(0x144)],_0x5e5e46=_0x5e5e46+_0x1cf83f[_0x1ed1ed(0x194)]()[_0x1ed1ed(0x144)]);}}),$(_0x1d83d4(0x19d))[_0x1d83d4(0x151)](_0x2d611e+_0x1d83d4(0x153)),$(_0x1d83d4(0x15a))[_0x1d83d4(0x151)](_0x116541+_0x1d83d4(0x153)),$(_0x1d83d4(0x157))['html'](_0x26aa0d+_0x1d83d4(0x153)),$('#RegAll')[_0x1d83d4(0x151)](_0x5e5e46+_0x1d83d4(0x153));});}function LoadRegister(){var _0x224023=_0x54a089,_0x3e5617='',_0x2eab5a='';_0x3e5617+=_0x224023(0x185),dbttbreserve[_0x224023(0x152)](_0x224023(0x19c),'==',_0x224023(0x18a))[_0x224023(0x16d)](_0x224023(0x197),_0x224023(0x156))[_0x224023(0x13d)]()['then'](_0x4a3c4b=>{var _0x73d8a5=_0x224023;_0x4a3c4b[_0x73d8a5(0x191)](_0x4112cb=>{var _0x4a7bfc=_0x73d8a5;if(_0x4112cb[_0x4a7bfc(0x194)]()[_0x4a7bfc(0x19c)]==_0x4a7bfc(0x18a))_0x3e5617+=_0x4a7bfc(0x193)+_0x4112cb['id']+'\x27)\x22>';else _0x4112cb[_0x4a7bfc(0x194)]()[_0x4a7bfc(0x19c)]==_0x4a7bfc(0x1a3)?_0x3e5617+=_0x4a7bfc(0x193)+_0x4112cb['id']+'\x27)\x22>':_0x3e5617+=_0x4a7bfc(0x182)+_0x4112cb['id']+_0x4a7bfc(0x168);var _0x4e6951=_0x4112cb[_0x4a7bfc(0x194)]()[_0x4a7bfc(0x147)][_0x4a7bfc(0x171)]('\x20');for(var _0x11940a=0x0;_0x11940a<_0x4e6951[_0x4a7bfc(0x189)];_0x11940a++){}if(_0x4112cb[_0x4a7bfc(0x194)]()[_0x4a7bfc(0x190)]=='A')_0x3e5617+=_0x4a7bfc(0x164)+_0x4112cb[_0x4a7bfc(0x194)]()[_0x4a7bfc(0x15c)]+_0x4a7bfc(0x17b)+_0x4e6951[0x0]+_0x4a7bfc(0x172);else _0x4112cb[_0x4a7bfc(0x194)]()[_0x4a7bfc(0x190)]=='B'?_0x3e5617+=_0x4a7bfc(0x164)+_0x4112cb[_0x4a7bfc(0x194)]()[_0x4a7bfc(0x15c)]+_0x4a7bfc(0x195)+_0x4e6951[0x0]+_0x4a7bfc(0x172):_0x3e5617+=_0x4a7bfc(0x164)+_0x4112cb[_0x4a7bfc(0x194)]()['Profileimg']+_0x4a7bfc(0x181)+_0x4e6951[0x0]+_0x4a7bfc(0x172);_0x3e5617+='';if(_0x4112cb[_0x4a7bfc(0x194)]()[_0x4a7bfc(0x19c)]==_0x4a7bfc(0x18a))_0x3e5617+=_0x4a7bfc(0x13c);else _0x4112cb['data']()['RegisterType']==_0x4a7bfc(0x1a3)&&(_0x3e5617+=_0x4a7bfc(0x143));_0x3e5617+=_0x4a7bfc(0x172);}),$('#DisplayRegister')['html'](_0x3e5617);}),CheckPeople();}function ClickMember(_0x38758b){var _0xeec5a3=_0x54a089,_0x481029='';dbttbreserve[_0xeec5a3(0x152)](firebase[_0xeec5a3(0x15e)][_0xeec5a3(0x160)]['documentId'](),'==',_0x38758b)[_0xeec5a3(0x13d)]()[_0xeec5a3(0x186)](_0x359cfd=>{var _0x9224d8=_0xeec5a3;_0x359cfd[_0x9224d8(0x191)](_0x36a07d=>{var _0x5c798d=_0x9224d8;if(_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x161)]=='A'){xMemo=_0x36a07d['data']()['Memo'];if(_0x36a07d[_0x5c798d(0x194)]()['RegisterType']=='Registered')_0x481029+=_0x5c798d(0x15b)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x19c)]+_0x5c798d(0x179)+_0x36a07d[_0x5c798d(0x194)]()['People']+_0x5c798d(0x13e)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x13b)]+',\x20'+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x18f)]+_0x5c798d(0x172);else _0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x19c)]==_0x5c798d(0x1a3)?_0x481029+=_0x5c798d(0x150)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x19c)]+'</font>\x20|\x20'+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x144)]+_0x5c798d(0x13e)+_0x36a07d[_0x5c798d(0x194)]()['TableNo1']+',\x20'+_0x36a07d['data']()[_0x5c798d(0x18f)]+_0x5c798d(0x172):_0x481029+='<div\x20class=\x22check-register\x22\x20style=\x22background:#777;\x22><font\x20color=\x22#fff\x22>ยังไม่ได้ลงทะเบียน</font>\x20|\x20'+_0x36a07d['data']()['People']+_0x5c798d(0x13e)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x13b)]+',\x20'+_0x36a07d['data']()[_0x5c798d(0x18f)]+'</div>';_0x481029+=_0x5c798d(0x164)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x15c)]+_0x5c798d(0x17f),_0x481029+='<div\x20style=\x22color:#f68b1f;font-size:\x2012px;font-weight:\x20600;\x22>'+_0x36a07d['data']()[_0x5c798d(0x147)],_0x36a07d[_0x5c798d(0x194)]()['Age']!=''&&(_0x481029+='\x20('+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x169)]+')\x20'),_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x177)]!=''&&(_0x481029+=_0x5c798d(0x14d)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x177)]),_0x481029+=_0x5c798d(0x172),_0x481029+=_0x5c798d(0x1a5)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x14e)]+_0x5c798d(0x14d)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x1a2)]+_0x5c798d(0x14d)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x139)]+_0x5c798d(0x172),_0x481029+=_0x5c798d(0x16e)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x14a)]+_0x5c798d(0x172),_0x481029+='<div\x20style=\x22color:#fff;font-size:\x2011px;margin-top:15px;\x22><font\x20color=\x22#888\x22><u>พอร์ตการลงทุนกับที่อื่น</u></font><br>'+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x135)]+'</div>',_0x481029+=_0x5c798d(0x16f)+_0x36a07d['data']()[_0x5c798d(0x175)]+_0x5c798d(0x14d)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x170)]+_0x5c798d(0x172),_0x481029+=_0x5c798d(0x1a0)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x184)]+_0x5c798d(0x14d)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x16a)]+_0x5c798d(0x172),_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x19c)]==_0x5c798d(0x18a)&&(_0x481029+=_0x5c798d(0x19b),_0x481029+=_0x5c798d(0x198)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x158)]+_0x5c798d(0x172),_0x481029+='<div\x20style=\x22color:#888;margin-top:10px;font-size:11px;\x22><u>พิมพ์รายการความสนใจ\x20ที่นี่</u></div>',_0x481029+=_0x5c798d(0x187),_0x481029+=_0x5c798d(0x166)+_0x36a07d['id']+_0x5c798d(0x167)+xMemo+_0x5c798d(0x162));}else _0x36a07d['data']()[_0x5c798d(0x19c)]==''?_0x481029+=_0x5c798d(0x180)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x144)]+_0x5c798d(0x13e)+_0x36a07d[_0x5c798d(0x194)]()['TableNo1']+'</div>':_0x481029+=_0x5c798d(0x16b)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x19c)]+_0x5c798d(0x141)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x144)]+_0x5c798d(0x13e)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x13b)]+_0x5c798d(0x172),_0x481029+=_0x5c798d(0x164)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x15c)]+'\x22\x20style=\x22width:\x20120px;margin:15px\x20auto;border-radius:\x2050%;\x22\x20onerror=\x22javascript:imgError(this)\x22></div>',_0x481029+=_0x5c798d(0x146)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x147)]+_0x5c798d(0x172),_0x481029+=_0x5c798d(0x1a5)+_0x36a07d[_0x5c798d(0x194)]()[_0x5c798d(0x14e)]+_0x5c798d(0x14d)+_0x36a07d[_0x5c798d(0x194)]()['NameCompany']+'</div>';_0x481029+=_0x5c798d(0x145),_0x481029+=_0x5c798d(0x19e);}),$(_0x9224d8(0x1a1))[_0x9224d8(0x151)](_0x481029);}),document[_0xeec5a3(0x1a4)](_0xeec5a3(0x154))['style'][_0xeec5a3(0x14f)]=_0xeec5a3(0x183);}function _0x22d4(){var _0x3fe9c6=['OthPort','getDate','style','5823774vHKjNI','Business','15762650VHYyuC','TableNo1','<div\x20class=\x22check-customermap\x22><img\x20src=\x22./img/true.png\x22></div>','get','\x20ท่าน\x20|\x20','1:653667385625:web:a5aed08500de80839f0588','1177812MChhHD','\x20|\x20','getSeconds','<div\x20class=\x22check-customermap\x22><img\x20src=\x22./img/false.png\x22></div>','People','<hr><div\x20class=\x22btn-t22\x22\x20onclick=\x22CloseAll()\x22>Close</div>','<div\x20style=\x22color:#f68b1f;font-size:\x2012px;font-weight:\x20600;\x22>','CustomerName','asc','getMinutes','ttbPort','37016KlqviQ','24CfoMLO','<br>','Position','display','<div\x20class=\x22check-register\x22\x20style=\x22background:#ff0000;\x22><font\x20color=\x22#ffff00\x22>','html','where','\x20ท่าน','id01','onerror','desc','#RegStaff','Memo','#DisplayMemo','#RegExecutive','<div\x20class=\x22check-register\x22><font\x20color=\x22#ffff00\x22>','Profileimg','getItem','firestore','6bDmYUV','FieldPath','TableGroup','\x27)\x22>บันทึกรายการ</div>','retailproject-6f4fc.appspot.com','<div><img\x20src=\x22','G-9SKTRHHSW9','<div\x20class=\x22btn-t1\x22\x20onclick=\x22SaveMemo(\x27','\x27,\x27','\x27)\x22>','Age','Branch','<div\x20class=\x22check-register\x22>','ready','orderBy','<div\x20style=\x22color:#fff;font-size:\x2011px;margin-top:15px;\x22><font\x20color=\x22#888\x22><u>พอร์ตการลงทุนกับ\x20ttb</u></font><br>','<div\x20style=\x22color:#fff;font-size:\x2011px;margin-top:15px;\x22><font\x20color=\x22#888\x22><u>สถานะบัตร\x20ttb\x20reserve</u></font><br>','CardType','split','</div>','AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE','getHours','CardReserve','56wMBtSI','MaritalStatus','892720awNMiB','</font>\x20|\x20','idttbMemo','\x22\x20class=\x22imgTable\x22\x20onerror=\x22javascript:imgError(this)\x22><br>','653667385625','ttbreservemap','retailproject-6f4fc','\x22\x20style=\x22width:\x20120px;margin:10px\x20auto;border-radius:\x2050%;\x22\x20onerror=\x22javascript:imgError(this)\x22></div>','<div\x20class=\x22check-register\x22><font\x20color=\x22#fff\x22>ยังไม่ได้ลงทะเบียน</font>\x20|\x20','\x22\x20class=\x22imgTable_2\x22\x20onerror=\x22javascript:imgError(this)\x22><br>','<div\x20class=\x22TableGroup_b\x22\x20onclick=\x22ClickMember(\x27','block','Staff','<div\x20style=\x22margin:10px\x20auto;\x20width:100%;\x20max-width:\x20400px;\x22>','then','<div><textarea\x20id=\x22idttbMemo\x22\x20style=\x22width:95%;margin:4px\x20auto;padding:5px;height:50px;background:#7f9dd8;\x22></textarea></div>','LoadRegister();','length','Registered','value','initializeApp','760884wDxcWO','retailproject-6f4fc.firebaseapp.com','TableNo2','CustomerType','forEach','collection','<div\x20class=\x22TableGroup\x22\x20onclick=\x22ClickMember(\x27','data','\x22\x20class=\x22imgTable_1\x22\x20onerror=\x22javascript:imgError(this)\x22><br>','<br><font\x20color=#c5ac94>','RegisterDate','<div\x20id=\x22DisplayMemo\x22\x20style=\x22color:#f68b1f;font-size:11px;margin-top:10px;\x22>','EmpName_Event','none','<div\x20style=\x22color:#ffff00;font-size:\x2011px;margin-top:15px;\x22><font\x20color=\x22#888\x22><u>บันทึกความสนใจของลูกค้า</u></font></div>','RegisterType','#RegCustomer','<div\x20class=\x22clr\x22\x20style=\x22height:30px;\x22></div>','157525MjAzhs','<div\x20style=\x22color:#fff;font-size:\x2011px;margin-top:15px;\x22><font\x20color=\x22#888\x22><u>พนักงานที่ดูแล</u></font><br>','#DisplayProfile','NameCompany','Not\x20Registered','getElementById','<div\x20style=\x22color:#fff;font-size:\x2011px;\x22>'];_0x22d4=function(){return _0x3fe9c6;};return _0x22d4();}function SaveMemo(_0x157b6c,_0x3d806d){var _0x26f9c4=_0x54a089,_0x54b785=document[_0x26f9c4(0x1a4)](_0x26f9c4(0x17a))[_0x26f9c4(0x18b)];_0x54b785!=''&&(xMemo+=_0x54b785+_0x26f9c4(0x196)+sessionStorage[_0x26f9c4(0x15d)](_0x26f9c4(0x199))+'</font><hr>',dbttbreserve['doc'](_0x157b6c)['update']({'Memo':xMemo})),idttbMemo[_0x26f9c4(0x18b)]='',$(_0x26f9c4(0x159))[_0x26f9c4(0x151)](xMemo);}function CloseAll(){var _0x31fba3=_0x54a089;document['getElementById'](_0x31fba3(0x154))[_0x31fba3(0x137)]['display']=_0x31fba3(0x19a);}function imgError(_0x23ac7e){var _0x45ab96=_0x54a089;return _0x23ac7e[_0x45ab96(0x155)]='',_0x23ac7e['src']='./customer/box.jpg',!![];}function NewDate(){var _0x4afbe5=_0x54a089,_0x180088=new Date(),_0x308069=_0x180088[_0x4afbe5(0x136)]()+'',_0x5651c3=_0x180088['getMonth']()+0x1+'',_0x4a960d=_0x180088['getFullYear']()+'',_0x1b45c0=_0x180088[_0x4afbe5(0x174)]()+'',_0x4e6c30=_0x180088[_0x4afbe5(0x149)]()+'',_0x31205d=_0x180088[_0x4afbe5(0x142)]()+'',_0x3791e3=_0x1b45c0>=0xc?'PM':'AM';_0x308069=checkZero(_0x308069),_0x5651c3=checkZero(_0x5651c3),_0x4a960d=checkZero(_0x4a960d),_0x1b45c0=checkZero(_0x1b45c0),_0x4e6c30=checkZero(_0x4e6c30),_0x31205d=checkZero(_0x31205d),dateString=_0x308069+'/'+_0x5651c3+'/'+_0x4a960d+'\x20'+_0x1b45c0+':'+_0x4e6c30+':'+_0x31205d+'\x20'+_0x3791e3;}function checkZero(_0x8efb48){return _0x8efb48['length']==0x1&&(_0x8efb48='0'+_0x8efb48),_0x8efb48;}
+var xMemo = "";
+var SelectGroup = "";
+var GotoGroup = 0;
+var CountPeople = "";
+var dateString = "";
+
+
+
+$(document).ready(function () {
+  Connect_DB();
+  CheckPeople();
+  LoadRegister();
+  setInterval("LoadRegister();",8000); 
+});
+
+
+
+function Connect_DB() {
+  var firebaseConfig = {
+    apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
+    authDomain: "retailproject-6f4fc.firebaseapp.com",
+    projectId: "retailproject-6f4fc",
+    storageBucket: "retailproject-6f4fc.appspot.com",
+    messagingSenderId: "653667385625",
+    appId: "1:653667385625:web:a5aed08500de80839f0588",
+    measurementId: "G-9SKTRHHSW9"
+  };
+  firebase.initializeApp(firebaseConfig);
+  dbttbreserve = firebase.firestore().collection("ttbreserve");
+  dbttbreservemap = firebase.firestore().collection("ttbreservemap");
+}
+
+
+function CheckPeople() {
+  var xRegCustomer = 0;
+  var xRegExecutive = 0;
+  var xRegStaff = 0;
+  var xSumRegister = 0;
+  dbttbreserve.where('RegisterType','==','Registered')
+  .orderBy('TableGroup','asc')
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+    //if(doc.data().RegisterType=="Registered") {
+      if(doc.data().TableGroup=="A") {
+        xRegCustomer = xRegCustomer+doc.data().People;
+        xSumRegister = xSumRegister+doc.data().People;
+      } else if(doc.data().TableGroup=="B") {
+        xRegExecutive = xRegExecutive+doc.data().People;
+        xSumRegister = xSumRegister+doc.data().People;
+      } else if(doc.data().TableGroup=="C") {
+        xRegStaff = xRegStaff+doc.data().People;
+        xSumRegister = xSumRegister+doc.data().People;
+      }
+    //}
+    });
+    $("#RegCustomer").html(xRegCustomer+" ท่าน");  
+    $("#RegExecutive").html(xRegExecutive+" ท่าน");  
+    $("#RegStaff").html(xRegStaff+" ท่าน");  
+    $("#RegAll").html(xSumRegister+" ท่าน");  
+  });
+}
+
+
+function LoadRegister() {
+  var str = "";
+  var xTable = "";
+  str += '<div style="margin:10px auto; width:100%; max-width: 400px;">';
+  dbttbreserve.where('RegisterType','==','Registered')
+  .orderBy('RegisterDate','desc')
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      if(doc.data().RegisterType=="Registered") { 
+        str += '<div class="TableGroup" onclick="ClickMember(\''+ doc.id +'\')">';
+      } else if(doc.data().RegisterType=="Not Registered") { 
+        str += '<div class="TableGroup" onclick="ClickMember(\''+ doc.id +'\')">';
+      } else { 
+        str += '<div class="TableGroup_b" onclick="ClickMember(\''+ doc.id +'\')">';
+      }
+      var xName = doc.data().CustomerName.split(' ');
+      for( var i=0; i<xName.length; i++ ) {    
+        //document.write( n[i] + "<br/>" ); 
+      }
+      if(doc.data().CustomerType=="A") { 
+        str += '<div><img src="'+ doc.data().Profileimg +'" class="imgTable" onerror="javascript:imgError(this)"><br>'+xName[0]+'</div>';
+      } else if(doc.data().CustomerType=="B") { 
+        str += '<div><img src="'+ doc.data().Profileimg +'" class="imgTable_1" onerror="javascript:imgError(this)"><br>'+xName[0]+'</div>';
+      } else {
+        str += '<div><img src="'+ doc.data().Profileimg +'" class="imgTable_2" onerror="javascript:imgError(this)"><br>'+xName[0]+'</div>';        
+      }
+      str += ''
+      if(doc.data().RegisterType=="Registered") {
+        str += '<div class="check-customermap"><img src="./img/true.png"></div>';
+      } else if(doc.data().RegisterType=="Not Registered") { 
+        str += '<div class="check-customermap"><img src="./img/false.png"></div>';
+      }
+    str += '</div>';
+    });
+    $("#DisplayRegister").html(str);  
+  });
+  CheckPeople();
+}
+
+
+function ClickMember(id) {
+  var str = "";
+  dbttbreserve.where(firebase.firestore.FieldPath.documentId(), "==", id)
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+
+      if(doc.data().TableGroup=="A") {
+        xMemo = doc.data().Memo;
+        if(doc.data().RegisterType=="Registered") {
+          str += '<div class="check-register"><font color="#ffff00">'+ doc.data().RegisterType+'</font> | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+', '+ doc.data().TableNo2+'</div>';        
+        } else if(doc.data().RegisterType=="Not Registered") {
+          str += '<div class="check-register" style="background:#ff0000;"><font color="#ffff00">'+ doc.data().RegisterType+'</font> | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+', '+ doc.data().TableNo2+'</div>';        
+        } else {
+          str += '<div class="check-register" style="background:#777;"><font color="#fff">ยังไม่ได้ลงทะเบียน</font> | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+', '+ doc.data().TableNo2+'</div>';        
+        }
+
+        str += '<div><img src="'+ doc.data().Profileimg +'" style="width: 120px;margin:10px auto;border-radius: 50%;" onerror="javascript:imgError(this)"></div>';
+        str += '<div style="color:#f68b1f;font-size: 12px;font-weight: 600;">'+ doc.data().CustomerName;
+        if(doc.data().Age != "" ) {
+          str += ' ('+doc.data().Age+') ';
+        } 
+        if(doc.data().MaritalStatus != "" ) {
+          str += '<br>'+doc.data().MaritalStatus;
+        } 
+        str += '</div>';
+        str += '<div style="color:#fff;font-size: 11px;">'+doc.data().Position+'<br>'+doc.data().NameCompany+'<br>'+doc.data().Business+'</div>';
+        str += '<div style="color:#fff;font-size: 11px;margin-top:15px;"><font color="#888"><u>พอร์ตการลงทุนกับ ttb</u></font><br>'+doc.data().ttbPort+'</div>';
+        str += '<div style="color:#fff;font-size: 11px;margin-top:15px;"><font color="#888"><u>พอร์ตการลงทุนกับที่อื่น</u></font><br>'+doc.data().OthPort+'</div>';
+        str += '<div style="color:#fff;font-size: 11px;margin-top:15px;"><font color="#888"><u>สถานะบัตร ttb reserve</u></font><br>'+doc.data().CardReserve+'<br>'+doc.data().CardType+'</div>';
+        str += '<div style="color:#fff;font-size: 11px;margin-top:15px;"><font color="#888"><u>พนักงานที่ดูแล</u></font><br>'+doc.data().Staff+'<br>'+doc.data().Branch+'</div>';
+        if(doc.data().RegisterType=="Registered") {
+          str += '<div style="color:#ffff00;font-size: 11px;margin-top:15px;"><font color="#888"><u>บันทึกความสนใจของลูกค้า</u></font></div>';
+          str += '<div id="DisplayMemo" style="color:#f68b1f;font-size:11px;margin-top:10px;">'+doc.data().Memo+'</div>';
+          str += '<div style="color:#888;margin-top:10px;font-size:11px;"><u>พิมพ์รายการความสนใจ ที่นี่</u></div>';
+          str += '<div><textarea id="idttbMemo" style="width:95%;margin:4px auto;padding:5px;height:50px;background:#7f9dd8;"></textarea></div>';
+          str += '<div class="btn-t1" onclick="SaveMemo(\''+ doc.id +'\',\''+ xMemo +'\')">บันทึกรายการ</div>';
+        }
+      } else {
+        if(doc.data().RegisterType=="") {
+          str += '<div class="check-register"><font color="#fff">ยังไม่ได้ลงทะเบียน</font> | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+'</div>';        
+        } else {
+          str += '<div class="check-register">'+ doc.data().RegisterType+' | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+'</div>';        
+        }
+        str += '<div><img src="'+ doc.data().Profileimg +'" style="width: 120px;margin:15px auto;border-radius: 50%;" onerror="javascript:imgError(this)"></div>';
+        str += '<div style="color:#f68b1f;font-size: 12px;font-weight: 600;">'+ doc.data().CustomerName+'</div>';
+        str += '<div style="color:#fff;font-size: 11px;">'+doc.data().Position+'<br>'+doc.data().NameCompany+'</div>';
+      }
+      str += '<hr><div class="btn-t22" onclick="CloseAll()">Close</div>';
+      str += '<div class="clr" style="height:30px;"></div>';
+    });
+    $("#DisplayProfile").html(str);
+  });
+  document.getElementById('id01').style.display='block';
+}
+
+function SaveMemo(id,txt) {
+  var sidttbMemo = document.getElementById("idttbMemo").value;
+  if(sidttbMemo!="") {
+    xMemo += sidttbMemo+"<br><font color=#c5ac94>"+sessionStorage.getItem("EmpName_Event")+"</font><hr>";
+    dbttbreserve.doc(id).update({
+      Memo : xMemo
+    });    
+  }
+  idttbMemo.value = '';
+  $("#DisplayMemo").html(xMemo);
+}
+
+
+function CloseAll() {
+  document.getElementById('id01').style.display='none';
+}
+
+
+function imgError(image) {
+    image.onerror = "";
+    image.src = "./customer/box.jpg";
+    return true;
+}
+
+
+function NewDate() {
+  var today = new Date();
+  var day = today.getDate() + "";
+  var month = (today.getMonth() + 1) + "";
+  var year = today.getFullYear() + "";
+  var hour = today.getHours() + "";
+  var minutes = today.getMinutes() + "";
+  var seconds = today.getSeconds() + "";
+  var ampm = hour >= 12 ? 'PM' : 'AM';
+  day = checkZero(day);
+  month = checkZero(month);
+  year = checkZero(year);
+  hour = checkZero(hour);
+  minutes = checkZero(minutes);
+  seconds = checkZero(seconds);
+  dateString = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds +" "+ ampm;
+}
+
+
+function checkZero(data){
+  if(data.length == 1){
+    data = "0" + data;
+  }
+  return data;
+}

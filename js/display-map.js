@@ -8,11 +8,10 @@ var GetCustomerDetailArr = [];
 
 
 $(document).ready(function () {
-  if(sessionStorage.getItem("EmpID_Event")==null) { location.href = "index.html"; }
-  //if(SelectGroup==0) { SelectGroup = 1; }
   Connect_DB();
   CheckPeople();
-  LoadMember();
+  LoadMap();
+  setInterval("LoadMap();",10000); 
 });
 
 
@@ -48,6 +47,7 @@ function GetTableCustomer() {
   .orderBy('CustomerNo','desc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
+      //console.log(doc.data().TableNo+"==="+doc.data().CustomerID);
       if(doc.data().CustomerID!="") {
         if(xCustomerID==doc.data().CustomerID) {
           sumCustomerID = sumCustomerID+1;
@@ -68,19 +68,9 @@ function GetTableCustomer() {
         mID = doc.id    
       }
     });    
-
-    //GetCustomerIDArr.push(xCustomerID);
-    //GetCustomerDetailArr.push({ CustomerID: xCustomerID, TableNo: x, CustomerMember: sumCustomerID, EmpRef: mID });
   });
 }
 
-
-
-
-function LinkGroup(x) {
-  SelectGroup = x;
-  LoadMember();
-}
 
 function CheckPeople() {
   var xRegCustomer = 0;
@@ -90,6 +80,7 @@ function CheckPeople() {
   .orderBy('TableGroup','asc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
+    //if(doc.data().RegisterType=="Registered") {
       if(doc.data().TableGroup=="A") {
         xRegCustomer = xRegCustomer+doc.data().People;
       } else if(doc.data().TableGroup=="B") {
@@ -97,85 +88,83 @@ function CheckPeople() {
       } else if(doc.data().TableGroup=="C") {
         xRegStaff = xRegStaff+doc.data().People;
       }
+    //}
     });
-    $("#RegCustomer").html("<b>"+xRegCustomer+" ท่าน</b>");  
-    $("#RegExecutive").html("<b>"+xRegExecutive+" ท่าน</b>");  
-    $("#RegStaff").html("<b>"+xRegStaff+" ท่าน</b>");  
+    $("#RegCustomer").html(xRegCustomer+" ท่าน");  
+    $("#RegExecutive").html(xRegExecutive+" ท่าน");  
+    $("#RegStaff").html(xRegStaff+" ท่าน");  
   });
 }
 
 
-function LoadMember() {
-  var str = "";
-  var str1 = "";
-  if(SelectGroup=="") { SelectGroup="A"; }
 
-  if(SelectGroup=="A") {
-    str1 += '<div class="btn-t1">ลูกค้าที่ได้รับเชิญร่วมงาน</div>';
-  } else if(SelectGroup=="B") {
-    str1 += '<div class="btn-t2">ผู้บริหารธนาคาร</div>';
-  } else if(SelectGroup=="C") {
-    str1 += '<div class="btn-t3">พนักงานที่ต้อนรับลูกค้า</div>';
-  }
-  $("#DisplayHeader").html(str1);  
-  dbttbreserve.where('TableGroup','==',SelectGroup)
-  //.orderBy('Ranking','asc')
-  .orderBy('CustomerName','asc')
-  //.orderBy('CustomerID','asc')
+function LoadMap() {
+  var str = "";
+  var xTable = "";
+  str += '<div style="margin:10px auto; width:100%; max-width: 400px;">';
+  dbttbreservemap
+  .orderBy('TableX','asc')
+  .orderBy('CustomerNo','asc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
-
-    const results = GetCustomerDetailArr.filter(obj => {return obj.CustomerID === doc.data().CustomerID;});
-    console.log(results[0]);
-
-    var xName = doc.data().CustomerName.split(' ');
-    for( var i=0; i<xName.length; i++ ) {  }
-
-    if(doc.data().RegisterType=="Registered") {   
-      str += '<div class="display-customer" onclick="ClickMember(\''+ doc.id +'\')"><img src="./customer/'+doc.data().CustomerID+'.jpg" onerror="javascript:imgError(this)" style="width:70%; border-radius: 50%;">';
-      if(results[0]==undefined) {
-        str += '<div class="text-customer"><b>'+xName[0]+'</b></div>';
-      } else {
-        str += '<div class="text-customer"><b>'+xName[0]+'</b> <font color="#f68b1f">('+results[0].CustomerMember+')</font><br><font color="#ffff00"><b>'+results[0].TableNo+'</b></font></div>';
+      const results = GetCustomerDetailArr.filter(obj => {return obj.CustomerID === doc.data().CustomerID;});
+      //console.log(results[0]);
+      var xName = doc.data().CustomerName.split(' ');
+      for( var i=0; i<xName.length; i++ ) {  }
+      if(doc.data().TableX!=xTable) {
+        xTable = doc.data().TableX;
+        str += '<div class="clr"></div>';
+        str += '<div style="margin-top:20px;text-align: left; color:#fff; padding:5px;">โต๊ะ '+ doc.data().TableX +'</div>';
       }
-    } else if(doc.data().RegisterType=="Not Registered") { 
-      str += '<div class="display-customer" onclick="ClickMember(\''+ doc.id +'\')"><img src="./customer/'+doc.data().CustomerID+'.jpg" onerror="javascript:imgError(this)" style="width:70%; border-radius: 50%;">';
-      if(results[0]==undefined) {
-        str += '<div class="text-customer"><b>'+xName[0]+'</b></div>';
-      } else {
-        str += '<div class="text-customer"><b>'+xName[0]+'</b> <font color="#ffff00">('+results[0].CustomerMember+')<br><b>'+results[0].TableNo+'</b></font></div>';
+      if(doc.data().RegisterType=="Registered") { 
+        str += '<div class="TableGroup" onclick="ClickMember(\''+ doc.data().RefID +'\')">';
+      } else if(doc.data().RegisterType=="Not Registered") { 
+        str += '<div class="TableGroup" onclick="ClickMember(\''+ doc.data().RefID +'\')">';
+      } else { 
+        str += '<div class="TableGroup_b" onclick="ClickMember(\''+ doc.data().RefID +'\')">';
       }
-    } else {
-      str += '<div class="display-customer" onclick="ClickMember(\''+ doc.id +'\')"><img src="./customer/'+doc.data().CustomerID+'.jpg" class="TableGroup_c" onerror="javascript:imgError(this)" style="width:70%; border-radius: 50%;">';
-      if(results[0]==undefined) {
-        str += '<div class="text-customer"><b>'+xName[0]+'</b></div>';
+      if(doc.data().CustomerType=="A") { 
+        str += '<div><img src="./customer/'+doc.data().CustomerID+'.jpg" class="imgTable" onerror="javascript:imgError(this)"></div>';
+        if(results[0]==undefined) {
+          str += '<div class="text-customer">'+xName[0]+'</div>';
+        } else {
+          //str += '<div class="text-customer">'+xName[0]+' <font color="#f68b1f">('+results[0].CustomerMember+')</font><br><font color="#ffff00">'+results[0].TableNo+'</font></div>';
+          str += '<div class="text-customer" style="margin-top:5px;"><font color="#ffff00"><b>'+results[0].TableNo+'</b></font></div>';
+        }
+      } else if(doc.data().CustomerType=="B") { 
+        if(results[0]==undefined) {
+          str += '<div class="text-customer">'+xName[0]+'</div>';
+        } else {
+          str += '<div><img src="./customer/'+doc.data().CustomerID+'.jpg" class="imgTable_1" onerror="javascript:imgError(this)"><br><b>'+results[0].TableNo+'</b></div>';
+        }
+      } else if(doc.data().CustomerType=="C") { 
+        if(results[0]==undefined) {
+          str += '<div class="text-customer">'+xName[0]+'</div>';
+        } else {
+          str += '<div><img src="./customer/'+doc.data().CustomerID+'.jpg" class="imgTable_2" onerror="javascript:imgError(this)"><br><b>'+results[0].TableNo+'</b></div>';        
+        }
       } else {
-        str += '<div class="text-customer"><b>'+xName[0]+'</b> <font color="#777">('+results[0].CustomerMember+')<br><b>'+results[0].TableNo+'</b></font></div>';
+          str += '<div><img src="./customer/'+doc.data().CustomerID+'.jpg" class="imgTable_2" onerror="javascript:imgError(this)"><br><b>'+doc.data().TableNo+'</b></div>';        
       }
-    }
+      str += ''
+      if(doc.data().RegisterType=="Registered") {
+        str += '<div class="check-customermap"><img src="./img/true.png"></div>';
+      } else if(doc.data().RegisterType=="Not Registered") { 
+        str += '<div class="check-customermap"><img src="./img/false.png"></div>';
+      }
 
-    if(doc.data().RegisterType=="Registered") {
-      str += '<div class="check-customer"><img src="./img/true.png"></div>';
-    } else if(doc.data().RegisterType=="Not Registered") { 
-      str += '<div class="check-customer"><img src="./img/false.png"></div>';
-    }
-    str += '</div>';
+      str += '</div>';
     });
-    $("#DisplayMember").html(str);  
+    str += '</div>';
+    $("#DisplayMap").html(str);  
   });
+  CheckPeople();
 }
 
 
-
-function imgError(image) {
-    image.onerror = "";
-    image.src = "./customer/box.jpg";
-    return true;
-}
 
 
 function ClickMember(id) {
-
   var str = "";
   dbttbreserve.where(firebase.firestore.FieldPath.documentId(), "==", id)
   .get().then((snapshot)=> {
@@ -183,33 +172,33 @@ function ClickMember(id) {
 
       const results = GetCustomerDetailArr.filter(obj => {return obj.CustomerID === doc.data().CustomerID;});
       console.log(results[0]);
-
-
       if(doc.data().TableGroup=="A") {
         xMemo = doc.data().Memo;
-
         if(doc.data().RegisterType=="Registered") {
+          //str += '<div class="check-register"><font color="#ffff00">'+ doc.data().RegisterType+'</font> | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+', '+ doc.data().TableNo2+'</div>';        
           if(results[0]==undefined) {
-            str += '<div class="check-register"><font color="#ffff00">ลงทะเบียนแล้ว</font> (ID-'+ doc.data().CustomerID+')</div>';        
+            str += '<div class="check-register"><font color="#ffff00">ลูกค้าลงทะเบียนแล้ว</font> (ID-'+ doc.data().CustomerID+')</div>';        
           } else {
-            str += '<div class="check-register"><font color="#ffff00">ลงทะเบียนแล้ว</font> (ID-'+ results[0].CustomerID+')<br>จำนวน '+ results[0].CustomerMember+' ท่าน | '+ results[0].TableNo +'</div>';        
+            str += '<div class="check-register"><font color="#ffff00">ลูกค้าลงทะเบียนแล้ว</font> (ID-'+ results[0].CustomerID+')<br>จำนวน '+ results[0].CustomerMember+' ท่าน | '+ results[0].TableNo +'</div>';        
           }
         } else if(doc.data().RegisterType=="Not Registered") {
+          //str += '<div class="check-register" style="background:#ff0000;"><font color="#ffff00">'+ doc.data().RegisterType+'</font> | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+', '+ doc.data().TableNo2+'</div>';        
           if(results[0]==undefined) { 
-            str += '<div class="check-register" style="background:#ff0000;"><font color="#ffff00">แจ้งไม่เข้าร่วมงาน (ID-'+ doc.data().CustomerID+'</font></div>';                    
+            str += '<div class="check-register" style="background:#ff0000;"><font color="#ffff00">ลูกค้าแจ้งไม่เข้าร่วมงาน (ID-'+ doc.data().CustomerID+'</font></div>';                    
           } else {
-            str += '<div class="check-register" style="background:#ff0000;"><font color="#ffff00">แจ้งไม่เข้าร่วมงาน (ID-'+ results[0].CustomerID+')<br>จำนวน '+ results[0].CustomerMember+' ท่าน | '+ results[0].TableNo +'</font></div>';                    
+            str += '<div class="check-register" style="background:#ff0000;"><font color="#ffff00">ลูกค้าแจ้งไม่เข้าร่วมงาน (ID-'+ results[0].CustomerID+')<br>จำนวน '+ results[0].CustomerMember+' ท่าน | '+ results[0].TableNo +'</font></div>';                    
           }
         } else {
+          //str += '<div class="check-register" style="background:#777;"><font color="#fff">ลูกค้ายังไม่ได้ลงทะเบียนเข้าร่วมงาน</font></div>';
           if(results[0]==undefined) {
-            str += '<div class="check-register" style="background:#777;"><font color="#fff">ยังไม่ได้ลงทะเบียน (ID-'+ doc.data().CustomerID+')</font></div>';
+            str += '<div class="check-register" style="background:#777;"><font color="#fff">ลูกค้ายังไม่ได้ลงทะเบียนเข้าร่วมงาน (ID-'+ doc.data().CustomerID+')</font></div>';
           } else {
-            str += '<div class="check-register" style="background:#777;"><font color="#fff">ยังไม่ได้ลงทะเบียน (ID-'+ results[0].CustomerID+')<br>จำนวน '+ results[0].CustomerMember+' ท่าน | '+ results[0].TableNo +'</font></div>';
+            str += '<div class="check-register" style="background:#777;"><font color="#fff">ลูกค้ายังไม่ได้ลงทะเบียน (ID-'+ results[0].CustomerID+')<br>จำนวน '+ results[0].CustomerMember+' ท่าน | '+ results[0].TableNo +'</font></div>';
           }
         }
 
         str += '<div><img src="./customer/'+doc.data().CustomerID+'.jpg" style="width: 120px;margin:10px auto;border-radius: 50%;" onerror="javascript:imgError(this)"></div>';
-        str += '<div style="color:#f68b1f;font-size: 12px;font-weight: 600;">'+ doc.data().CustomerName;
+        str += '<div style="color:#f68b1f;font-size: 12px;font-weight: 600;"><b>'+ doc.data().CustomerName+'</b>';
         if(doc.data().Age != "" ) {
           str += ' ('+doc.data().Age+') ';
         } 
@@ -246,43 +235,23 @@ function ClickMember(id) {
           //str += '<div class="check-register" style="background:#ff0000;"><font color="#ffff00">'+ doc.data().RegisterType+'</font> | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+', '+ doc.data().TableNo2+'</div>';        
         } else {
           if(results[0]==undefined) { 
-            str += '<div class="check-register" style="background:#777;"><font color="#fff">ยังไม่ได้ลงทะเบียน (ID-'+ doc.data().CustomerID+')</font></div>';
+             str += '<div class="check-register" style="background:#777;"><font color="#fff">ยังไม่ได้ลงทะเบียนเข้าร่วมงาน</font></div>';
           } else {
             str += '<div class="check-register" style="background:#777;"><font color="#fff">ยังไม่ได้ลงทะเบียน (ID-'+ results[0].CustomerID+')<br>จำนวน '+ results[0].CustomerMember+' ท่าน | '+ results[0].TableNo +'</font></div>';        
           }
           //str += '<div class="check-register" style="background:#777;"><font color="#fff">ยังไม่ได้ลงทะเบียน</font> | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+', '+ doc.data().TableNo2+'</div>';        
         }
-/*
-        if(doc.data().RegisterType=="") {
-          str += '<div class="check-register"><font color="#fff">ยังไม่ได้ลงทะเบียน</font> | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+'</div>';        
-        } else {
-          str += '<div class="check-register">'+ doc.data().RegisterType+' | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+'</div>';        
-        }
-*/
-        //str += '<div class="check-register">'+ doc.data().RegisterType+' | '+ doc.data().People+' ท่าน | '+ doc.data().TableNo1+'</div>';        
         str += '<div><img src="./customer/'+doc.data().CustomerID+'.jpg" style="width: 120px;margin:15px auto;border-radius: 50%;" onerror="javascript:imgError(this)"></div>';
         str += '<div style="color:#f68b1f;font-size: 12px;font-weight: 600;">'+ doc.data().CustomerName+'</div>';
         str += '<div style="color:#fff;font-size: 11px;">'+doc.data().Position+'<br>'+doc.data().NameCompany+'</div>';
       }
-
-      if(sessionStorage.getItem("EmpID_Admin")!=null) {
-        str += '<div class="clr"></div><hr>';
-        if(doc.data().RegisterType=="") {
-          str += '<div class="btn-t1" onclick="SaveRegister(\''+ doc.id +'\',\''+ doc.data().TableGroup +'\',1)">คลิกลงทะเบียนร่ามงาน</div>';
-          str += '<div class="btn-t4" onclick="SaveRegister(\''+ doc.id +'\',\''+ doc.data().TableGroup +'\',2)">ไม่เข้าร่วมงาน</div>';
-        } else {
-          str += '<div class="btn-t4" onclick="SaveRegister(\''+ doc.id +'\',\''+ doc.data().TableGroup +'\',0)">ขอลงทะเบียนใหม่</div>';
-        }
-        str += '<div class="clr" style="height: 5px;"></div><hr>';
-      }
-      str += '<div class="btn-t22" onclick="CloseAll()">Close</div>';
+      str += '<hr><div class="btn-t22" onclick="CloseAll()">Close</div>';
       str += '<div class="clr" style="height:30px;"></div>';
     });
     $("#DisplayProfile").html(str);
   });
   document.getElementById('id01').style.display='block';
 }
-
 
 function SaveMemo(id,txt) {
   var sidttbMemo = document.getElementById("idttbMemo").value;
@@ -297,55 +266,15 @@ function SaveMemo(id,txt) {
 }
 
 
-
 function CloseAll() {
-  var str = "";
-  $("#DisplayProfile").html(str);  
   document.getElementById('id01').style.display='none';
 }
 
 
-function SaveRegister(id,g,x) {
-  NewDate();
-  var CountPeople = "";
-  var TypeRegister = "";
-  if(x==1) { TypeRegister="Registered"; }
-  else if(x==2) { TypeRegister="Not Registered"; }
-  else { 
-    TypeRegister = ""; 
-    dateString = "";
-  }
-  dbttbreserve.doc(id).update({
-    RegisterType : TypeRegister,
-    RegisterDate : dateString,
-    RegisterBy : sessionStorage.getItem("EmpName_Event")
-  });    
-
-  dbttbreservemap.where('RefID','==',id)
-  .get().then((snapshot)=> {
-    snapshot.forEach(doc=> {
-      dbttbreservemap.doc(doc.id).update({
-        RefID : id,
-        CustomerType : g,
-        RegisterType : TypeRegister
-      });
-
-      //UpdateMap(doc.id,TypeRegister);
-      //var xCustomerName = doc.data().CustomerName;
-      console.log(TypeRegister);
-    });
-  });
-
-  document.getElementById('id01').style.display='none';
-  LoadMember();
-  CheckPeople();
-}
-
-
-function UpdateMap(id,t) {
-  dbttbreservemap.doc(id).update({
-    RegisterType : t
-  });
+function imgError(image) {
+    image.onerror = "";
+    image.src = "./customer/box.jpg";
+    return true;
 }
 
 
@@ -367,6 +296,12 @@ function NewDate() {
   dateString = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds +" "+ ampm;
 }
 
+/*
+function UpdateData() {
+  GetTableCustomer();
+  LoadMap();
+}
+*/
 
 function checkZero(data){
   if(data.length == 1){
